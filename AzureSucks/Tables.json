@@ -1,0 +1,8 @@
+{
+  "chilis": {
+    "create": "CREATE TABLE [dbo].[Chilis]([Id] varchar(255) NOT NULL PRIMARY KEY, [Name] varchar(255) NOT NULL, [Description] varchar(255), [Contestant] varchar(255), [ImageUrl] varchar(max))"
+  },
+  "votes": {
+    "create": "CREATE TABLE [dbo].[Votes] ([Id] varchar(255) NOT NULL PRIMARY KEY, [ChiliId] varchar(255) FOREIGN KEY REFERENCES Chilis(Id))"
+  }
+}
