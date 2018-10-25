@@ -11,6 +11,6 @@ export class HomeComponent {
   constructor(private service: TestingService) {
     this.service.getSomething().subscribe(item => {
       this.names = item;
-    })
+    });
   }
 }

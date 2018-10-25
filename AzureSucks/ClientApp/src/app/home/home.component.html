@@ -1,5 +1,53 @@
-<div fxLayout="row wrap" fxLayoutGap="2rem" style="padding: 15px">
-  <mat-card *ngFor="let family of names" matRipple style="max-width: 200px; cursor: pointer; user-select: none;">
-    {{family.name}}
-  </mat-card>
+<div style="height: 100%; background-color: #fafafa">
+  <mat-toolbar color="primary">Chili Weather Party Dashboard <span fxFlex></span><span style="margin-right: 10px">Total
+      Votes</span>
+    <button mat-fab
+      color="accent">3</button>
+  </mat-toolbar>
+  <div fxLayout="column"
+    style="padding: 20px">
+    <div fxLayout="row"
+      fxLayoutAlign="space-evenly">
+      <div fxFlex="50">
+        <app-face-off></app-face-off>
+      </div>
+      <div fxFlex="50">
+        <app-leader-board-chart></app-leader-board-chart>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column"
+    style="padding: 20px">
+    <app-leader-board-list></app-leader-board-list>
+  </div>
 </div>
+
+<!--
+
+<div style="height: 100%; background-color: #fafafa">
+    <mat-toolbar color="primary">Chili Weather Party Dashboard <span fxFlex></span><span style="margin-right: 10px">Total
+        Votes</span>
+      <button mat-fab
+        color="accent">3</button>
+    </mat-toolbar>
+    <div fxLayout="column"
+      style="padding: 20px">
+      <div fxLayout="row"
+        fxLayoutAlign="space-evenly">
+        <div fxLayout="column"
+          fxFlexAlign="before"
+          fxLayoutAlign="space-evenly center"
+          fxLayoutGap="1rem">
+          <app-chili-card></app-chili-card>
+          <app-chili-card></app-chili-card>
+          <app-chili-card></app-chili-card>
+          <app-chili-card></app-chili-card>
+          <app-chili-card></app-chili-card>
+        </div>
+        <div fxLayout="column"
+          fxLayoutAlign="start">
+          <app-leader-board-chart></app-leader-board-chart>
+        </div>
+      </div>
+    </div>
+  </div> -->

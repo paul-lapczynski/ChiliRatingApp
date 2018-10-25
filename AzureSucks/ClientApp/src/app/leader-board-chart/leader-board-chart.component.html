@@ -1,0 +1,19 @@
+<div fxLayout="row"
+  fxLayoutAlign="center center"
+  style="height: 100%">
+  <mat-card [ngStyle]="{'height.px': chart?.height || 300, 'width.px': chart?.width || 300}">
+    <ngx-charts-bar-vertical #chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="single"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel">
+    </ngx-charts-bar-vertical>
+  </mat-card>
+</div>

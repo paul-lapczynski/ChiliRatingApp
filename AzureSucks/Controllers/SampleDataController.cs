@@ -17,8 +17,8 @@ namespace AzureSucks.Controllers
         [HttpGet("WeatherForecasts")]
         public IActionResult WeatherForecasts()
         {
-            var gg = new Repositories.ChiliRepository();
-            return Ok(gg.GetContestants());
+            //var gg = new Repositories.ChiliRepository();
+            return Ok(true);
         }
 
         public class WeatherForecast

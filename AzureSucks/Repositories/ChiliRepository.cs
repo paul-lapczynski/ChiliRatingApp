@@ -5,21 +5,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Lib;
 
 namespace AzureSucks.Repositories
 {
     public class ChiliRepository : AbstractRepository
     {
-        public List<Contestants> GetContestants()
+        public List<Chili> GetContestants()
         {
-            return Connection.Query<Contestants>($@"Select * from Contestants").ToList();
+            return Connection.Query<Chili>($@"Select * from Chilis").ToList();
         }
-    }
-
-    public class Contestants
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
     }
 }
