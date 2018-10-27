@@ -4,12 +4,12 @@
   fxLayoutGap="1rem"
   *ngIf="topTwo">
   <app-chili-card [chili]="topTwo[0]"
-    [isLeader]="topTwo[0]?.votes > topTwo[1]?.votes || topTwo[0]?.votes == topTwo[1]?.votes"
-    [maxWidth]="250"></app-chili-card>
+    [width]="300"
+    [isLeader]="topTwo[0]?.votes > topTwo[1]?.votes || topTwo[0]?.votes == topTwo[1]?.votes"></app-chili-card>
   <img src="../../assets//1357c9101c416ab.jpg"
     width="150px"
     height="100px">
   <app-chili-card [chili]="topTwo[1]"
     [isLeader]="topTwo[1]?.votes > topTwo[0]?.votes || topTwo[1]?.votes == topTwo[0]?.votes"
-    [maxWidth]="250"></app-chili-card>
+    [width]="300"></app-chili-card>
 </div>

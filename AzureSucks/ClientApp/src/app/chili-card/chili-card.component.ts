@@ -8,7 +8,7 @@ import { ChiliCard } from '../models/ChiliCard';
 })
 export class ChiliCardComponent implements OnInit {
   @Input()
-  maxWidth = 300;
+  width = 300;
 
   @Input()
   chili: ChiliCard;
