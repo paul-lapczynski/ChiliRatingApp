@@ -21,13 +21,16 @@ namespace ChiliRatingApi
             ILogger log)
         {
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            var chili = JsonConvert.DeserializeObject<Chili>(requestBody);
+            dynamic chili = JsonConvert.DeserializeObject(requestBody);
 
             try
             {
                 using (var connection = new SqlConnection(Environment.GetEnvironmentVariable("APPSETTING_SQLConnectionString")))
                 {
-                    connection.Query($@"delete from Chilis where Id = @id", new { chili.Id });
+                    var transaction = connection.BeginTransaction();
+                    connection.Query($@"delete from Votes where ChiliId = @chiliId", new { chili.chiliId }, transaction);
+                    connection.Query($@"delete from Chilis where Id = @chiliId", new { chili.chiliId }, transaction);
+                    transaction.Commit();
 
                     return new OkObjectResult(true);
                 }
