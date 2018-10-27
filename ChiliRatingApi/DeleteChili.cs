@@ -27,10 +27,8 @@ namespace ChiliRatingApi
             {
                 using (var connection = new SqlConnection(Environment.GetEnvironmentVariable("APPSETTING_SQLConnectionString")))
                 {
-                    var transaction = connection.BeginTransaction();
-                    connection.Query($@"delete from Votes where ChiliId = @chiliId", new { chili.chiliId }, transaction);
-                    connection.Query($@"delete from Chilis where Id = @chiliId", new { chili.chiliId }, transaction);
-                    transaction.Commit();
+                    connection.Query($@"delete from Votes where ChiliId = @chiliId", new { chili.chiliId });
+                    connection.Query($@"delete from Chilis where Id = @chiliId", new { chili.chiliId });
 
                     return new OkObjectResult(true);
                 }
