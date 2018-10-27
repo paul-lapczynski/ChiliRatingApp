@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-flame-badge',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flame-badge.component.scss']
 })
 export class FlameBadgeComponent implements OnInit {
+  @Input()
+  showFlame = false;
+
   constructor() {}
 
   ngOnInit() {}

@@ -16,8 +16,9 @@ export class ChiliCardComponent implements OnInit {
   @Input()
   isLeader = false;
 
-  @Input()
-  hottessCount = 0;
+  get hottessCount() {
+    return Math.floor(this.chili.votes / 5);
+  }
 
   constructor() {}
 
