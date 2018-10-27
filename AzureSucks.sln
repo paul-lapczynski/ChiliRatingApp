@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureSucks", "AzureSucks\AzureSucks.csproj", "{BACAF66B-DF9E-485F-9D13-CEA706DBE8EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiliRatingApi", "ChiliRatingApi\ChiliRatingApi.csproj", "{44FA6669-3431-4797-B22E-A44DB1C2ABE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChiliRatingApi", "ChiliRatingApi\ChiliRatingApi.csproj", "{44FA6669-3431-4797-B22E-A44DB1C2ABE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{A5ABC677-5A0D-453E-96DA-4C584281A3D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lib", "Lib\Lib.csproj", "{A5ABC677-5A0D-453E-96DA-4C584281A3D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

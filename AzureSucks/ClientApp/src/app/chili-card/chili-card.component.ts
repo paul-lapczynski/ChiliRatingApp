@@ -10,8 +10,20 @@ export class ChiliCardComponent implements OnInit {
   maxWidth = 300;
 
   @Input()
-  chiliCount = [1, 2, 3, 5];
+  chiliCount = [];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getRandomChiliCount();
+  }
+
+  getRandomChiliCount() {
+    const max = 5;
+    const min = 0;
+    const number = Math.floor(Math.random() * (max - min + 1)) + min;
+    for (let i = 0; i < number; i++) {
+      this.chiliCount.push(1);
+    }
+  }
 }

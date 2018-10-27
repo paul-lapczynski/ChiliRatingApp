@@ -6,15 +6,21 @@
   [ngStyle]="{'max-width.px': maxWidth}">
   <mat-card-title-group>
     <mat-card-title>
-      Paul's Chili <app-flame-badge *ngFor="let chili of chiliCount"></app-flame-badge>
+      Paul's Chili
+      <span style="margin-right: 5px">
+        <app-flame-badge-group [count]="2"></app-flame-badge-group>
+        <!-- <app-flame-badge></app-flame-badge> -->
+      </span>
     </mat-card-title>
     <mat-card-subtitle>
       The best
     </mat-card-subtitle>
   </mat-card-title-group>
   <img mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu">
+    src="../../assets/chili.jpg"
+    alt="Photo of a Shiba Inu"
+    class="center">
   <mat-card-content>
+    <ng-content select="[mat-card-chili]"></ng-content>
   </mat-card-content>
 </mat-card>

@@ -29,15 +29,9 @@ export class LeaderBoardChartComponent implements OnInit {
   showXAxisLabel = true;
   xAxisLabel = 'Chilers';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  yAxisLabel = 'Votes';
 
   colorScheme = 'fire';
 
   ngOnInit() {}
-
-  testing() {
-    this.single[0].value = Math.random() * 12;
-
-    this.single = [...this.single];
-  }
 }

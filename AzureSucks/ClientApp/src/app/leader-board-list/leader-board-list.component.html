@@ -1,11 +1,14 @@
-<h1>Ladder Climbers</h1>
+<h1 class="common-header">Ladder Climbers</h1>
 <div fxLayout="row"
   fxFlexAlign="before"
   fxLayoutAlign="space-evenly center"
   fxLayoutGap="1rem">
-  <app-chili-card></app-chili-card>
-  <app-chili-card></app-chili-card>
-  <app-chili-card></app-chili-card>
-  <app-chili-card></app-chili-card>
-  <app-chili-card></app-chili-card>
+  <app-chili-card [maxWidth]="225"
+    *ngFor="let card of chiliCards">
+    <span mat-card-chili>
+      Paul's Amazing Chili is Amazing!
+      Paul's Amazing Chili is Amazing!
+      Paul's Amazing Chili is Amazing!
+    </span>
+  </app-chili-card>
 </div>

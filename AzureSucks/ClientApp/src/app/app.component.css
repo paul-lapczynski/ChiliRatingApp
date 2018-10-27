@@ -9,3 +9,7 @@
 :host {
   height: 100%;
 }
+
+.common-header {
+  margin-top: 0px
+}

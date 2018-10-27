@@ -8,6 +8,7 @@ import { TestingService } from '../testing.service';
 })
 export class HomeComponent {
   names: string[];
+
   constructor(private service: TestingService) {
     this.service.getSomething().subscribe(item => {
       this.names = item;

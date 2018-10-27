@@ -25,6 +25,7 @@ import { ChiliCardComponent } from './chili-card/chili-card.component';
 import { LeaderBoardListComponent } from './leader-board-list/leader-board-list.component';
 import { FaceOffComponent } from './face-off/face-off.component';
 import { FlameBadgeComponent } from './flame-badge/flame-badge.component';
+import { FlameBadgeGroupComponent } from './flame-badge-group/flame-badge-group.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FlameBadgeComponent } from './flame-badge/flame-badge.component';
     ChiliCardComponent,
     LeaderBoardListComponent,
     FaceOffComponent,
-    FlameBadgeComponent
+    FlameBadgeComponent,
+    FlameBadgeGroupComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
