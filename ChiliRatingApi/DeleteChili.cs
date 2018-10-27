@@ -20,8 +20,10 @@ namespace ChiliRatingApi
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
+
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic chili = JsonConvert.DeserializeObject(requestBody);
+            var chili = JsonConvert.DeserializeObject<DeleteRequest>(requestBody);
+            log.LogInformation(requestBody);
 
             try
             {
@@ -41,6 +43,11 @@ namespace ChiliRatingApi
                 return new BadRequestObjectResult("An Error Occurred. Please Try Again");
 
             }
+        }
+
+        public class DeleteRequest
+        {
+            public string ChiliId { get; set; }
         }
     }
 }
