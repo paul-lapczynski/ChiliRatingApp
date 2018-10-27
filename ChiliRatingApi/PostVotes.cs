@@ -31,11 +31,14 @@ namespace ChiliRatingApi
 
                 using (var connection = new SqlConnection(Environment.GetEnvironmentVariable("APPSETTING_SQLConnectionString")))
                 {
+
+                    connection.Query($@"delete from Votes where Voter = @voter", new { votes[0].Voter });
+
                     var results = new List<bool>();
 
                     votes.ForEach(vote =>
                     {
-                       var result = connection.Query<bool>($@"
+                        var result = connection.Query<bool>($@"
                        INSERT INTO Votes(Id, Voter, ChiliId)
                        VALUES (@Id, @Voter, @ChiliId)
                     ", new { Id = Guid.NewGuid().ToString(), vote.Voter, vote.ChiliId }).FirstOrDefault();
