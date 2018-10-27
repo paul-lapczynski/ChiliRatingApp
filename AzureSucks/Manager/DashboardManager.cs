@@ -47,13 +47,30 @@ namespace AzureSucks.Manager
 
         public Dashboard GetDashboard()
         {
+            var hasVotingStarted = VoteRepository.HasVotingStarted();
+
             var dashboard = new Dashboard
             {
                 FaceOff = ChiliRepository.GetFaceOffChiliCards(),
                 LadderClimbers = ChiliRepository.GetLadderClimbers(),
                 TotalVotes = VoteRepository.Get().Count,
-                ChiliChart = 
+                ChiliChart = new ChiliChart
+                {
+                    Columns = ChiliRepository.GetChiliChartColumns()
+                },
+                VotingStarted = hasVotingStarted
             };
+            if (!hasVotingStarted)
+            {
+                dashboard.Contenders = ChiliRepository.GetChilis().Select(chili => new ChiliCard
+                {
+                    Description = chili.Description,
+                    ImageUrl = chili.ImageUrl,
+                    Subtitle = chili.Contestant,
+                    Title = chili.Name,
+                    Votes = 0
+                }).ToList();
+            }
 
             return dashboard;
         }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ChiliCard } from '../models/ChiliCard';
 
 @Component({
   selector: 'app-chili-card',
@@ -10,7 +11,13 @@ export class ChiliCardComponent implements OnInit {
   maxWidth = 300;
 
   @Input()
-  chiliCount = [];
+  chili: ChiliCard;
+
+  @Input()
+  isLeader = false;
+
+  @Input()
+  hottessCount = 0;
 
   constructor() {}
 
@@ -18,12 +25,5 @@ export class ChiliCardComponent implements OnInit {
     this.getRandomChiliCount();
   }
 
-  getRandomChiliCount() {
-    const max = 5;
-    const min = 0;
-    const number = Math.floor(Math.random() * (max - min + 1)) + min;
-    for (let i = 0; i < number; i++) {
-      this.chiliCount.push(1);
-    }
-  }
+  getRandomChiliCount() {}
 }

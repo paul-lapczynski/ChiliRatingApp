@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ChiliCard } from '../models/ChiliCard';
 
 @Component({
   selector: 'app-face-off',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./face-off.component.scss']
 })
 export class FaceOffComponent implements OnInit {
+  @Input()
+  topTwo: ChiliCard[];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

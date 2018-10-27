@@ -1,3 +1,4 @@
+import { ChiliCard } from './../models/ChiliCard';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LeaderBoardListComponent implements OnInit {
   @Input()
-  chiliCards = [1, 2, 3, 4, 5];
+  chiliCards: ChiliCard[];
+
   constructor() {}
 
   ngOnInit() {}

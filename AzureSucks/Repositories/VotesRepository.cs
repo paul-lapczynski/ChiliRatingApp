@@ -22,5 +22,13 @@ namespace AzureSucks.Repositories
 
             return result;
         }
+
+        public bool HasVotingStarted()
+        {
+            var result = Connection.Query<bool>($@"SELECT CASE WHEN COUNT(1) > 0 THEN 1 ELSE 0 END AS [Value]
+                from Votes").First();
+
+            return result;
+        }
     }
 }

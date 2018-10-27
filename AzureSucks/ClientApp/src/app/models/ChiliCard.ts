@@ -8,6 +8,8 @@ export interface IChiliCard {
   votes?: number;
 
   description?: string;
+
+  imageUrl?: string;
 }
 
 export class ChiliCard extends BaseModel implements IChiliCard {
@@ -18,4 +20,6 @@ export class ChiliCard extends BaseModel implements IChiliCard {
   votes?: number;
 
   description?: string;
+
+  imageUrl?: string;
 }

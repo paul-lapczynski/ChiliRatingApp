@@ -1,14 +1,13 @@
 <h1 class="common-header">Ladder Climbers</h1>
 <div fxLayout="row"
   fxFlexAlign="before"
-  fxLayoutAlign="space-evenly center"
-  fxLayoutGap="1rem">
+  fxLayoutAlign="start center"
+  fxLayoutGap="2rem">
   <app-chili-card [maxWidth]="225"
-    *ngFor="let card of chiliCards">
+    *ngFor="let card of chiliCards"
+    [chili]="card">
     <span mat-card-chili>
-      Paul's Amazing Chili is Amazing!
-      Paul's Amazing Chili is Amazing!
-      Paul's Amazing Chili is Amazing!
+      {{card.description}}
     </span>
   </app-chili-card>
 </div>

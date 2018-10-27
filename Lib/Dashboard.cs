@@ -13,5 +13,9 @@ namespace Lib
         public List<ChiliCard> FaceOff { get; set; }
 
         public List<ChiliCard> LadderClimbers { get; set; }
+
+        public bool VotingStarted { get; set; }
+
+        public List<ChiliCard> Contenders { get; set; }
     }
 }

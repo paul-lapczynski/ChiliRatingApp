@@ -1,24 +1,30 @@
-<mat-card matBadge="22"
+<mat-card matBadge="{{chili?.votes}}"
   matBadgePosition="above after"
   matBadgeColor="warn"
   matBadgeSize="medium"
   style="min-height: 100px"
-  [ngStyle]="{'max-width.px': maxWidth}">
+  [ngStyle]="{'width.px': width}">
   <mat-card-title-group>
     <mat-card-title>
-      Paul's Chili
-      <span style="margin-right: 5px">
-        <app-flame-badge-group [count]="2"></app-flame-badge-group>
-        <!-- <app-flame-badge></app-flame-badge> -->
+      <img *ngIf="isLeader"
+        src="../../assets/5a1ce9fd159881.2639990015118443490885.png"
+        height="100px"
+        width="100px"
+        class="crown-left" />
+      {{chili?.title}}
+      <span style="margin-right: 5px"
+        *ngIf="hottessCount != 0">
+        <app-flame-badge-group [count]="hottessCount"></app-flame-badge-group>
       </span>
     </mat-card-title>
     <mat-card-subtitle>
-      The best
+      {{chili?.subtitle}}
     </mat-card-subtitle>
   </mat-card-title-group>
-  <img mat-card-image
-    src="../../assets/chili.jpg"
-    alt="Photo of a Shiba Inu"
+  <img #img
+    src="{{chili?.imageUrl }}"
+    (error)="img.src = '../../assets/chili.jpg'"
+    alt="{{chili?.imageUrl}}"
     class="center">
   <mat-card-content>
     <ng-content select="[mat-card-chili]"></ng-content>

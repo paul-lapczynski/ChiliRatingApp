@@ -2,10 +2,14 @@
   fxLayoutAlign="center center"
   style="height: 100%">
   <mat-card [ngStyle]="{'height.px': chart?.height || 300, 'width.px': chart?.width || 300}">
+    <div *ngIf="chiliChart?.columns?.length == 0"
+      fxLayout="column"
+      fxLayoutAlign="center center"><strong>Get Rating!!!!!</strong></div>
     <ngx-charts-bar-vertical #chart
+      *ngIf="chiliChart?.columns?.length > 0"
       [view]="view"
       [scheme]="colorScheme"
-      [results]="single"
+      [results]="chiliChart.columns"
       [gradient]="gradient"
       [xAxis]="showXAxis"
       [yAxis]="showYAxis"

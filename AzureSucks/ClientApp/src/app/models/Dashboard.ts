@@ -10,6 +10,22 @@ export interface IDashboard {
   faceOff?: ChiliCard[];
 
   ladderClimbers?: ChiliCard[];
+
+  votingStarted?: boolean;
+
+  contenders?: ChiliCard[];
 }
 
-export class Dashboard extends BaseModel implements IDashboard {}
+export class Dashboard extends BaseModel implements IDashboard {
+  totalVotes?: number;
+
+  chiliChart?: ChiliChart;
+
+  faceOff?: ChiliCard[];
+
+  ladderClimbers?: ChiliCard[];
+
+  votingStarted?: boolean;
+
+  contenders?: ChiliCard[];
+}

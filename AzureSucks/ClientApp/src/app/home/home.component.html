@@ -2,24 +2,45 @@
   <mat-toolbar color="primary">Chili Weather Party Dashboard <span fxFlex></span><span style="margin-right: 10px">Total
       Votes</span>
     <button mat-fab
-      color="accent">3</button>
+      color="accent">{{dashboard?.totalVotes}}</button>
   </mat-toolbar>
-  <div fxLayout="column"
-    style="padding: 20px">
-    <div fxLayout="row"
-      fxLayoutAlign="space-evenly">
-      <div fxFlex="50">
-        <app-face-off></app-face-off>
-      </div>
-      <div fxFlex="50">
-        <app-leader-board-chart></app-leader-board-chart>
+  <div *ngIf="dashboard?.votingStarted">
+    <div fxLayout="column"
+      style="padding: 20px">
+      <div fxLayout="row"
+        fxLayoutAlign="space-evenly">
+        <div fxFlex="50">
+          <app-face-off [topTwo]="dashboard?.faceOff"></app-face-off>
+        </div>
+        <div fxFlex="50">
+          <app-leader-board-chart *ngIf="dashboard"
+            [chiliChart]="dashboard?.chiliChart"></app-leader-board-chart>
+        </div>
       </div>
     </div>
+    <div fxLayout="column"
+      style="padding: 0px 20px 0px 20px">
+      <app-leader-board-list [chiliCards]="dashboard?.ladderClimbers"></app-leader-board-list>
+    </div>
   </div>
-  <div fxLayout="column"
-    style="padding: 0px 20px 0px 20px">
-    <app-leader-board-list></app-leader-board-list>
-  </div>
+  <mat-card *ngIf="!dashboard?.votingStarted"
+    style="height: 100%; width: 100%;">
+    <mat-card-header>
+      <h1>The Voting Has Not Yet Started</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <div fxLayout="row wrap"
+        fxLayoutGap="2rem">
+        <div *ngFor="let contender of dashboard?.contenders">
+          <div style="margin-bottom: 2rem">
+            <app-chili-card [chili]="contender">
+              <span mat-card-chili>{{contender.description}}</span>
+            </app-chili-card>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <!--

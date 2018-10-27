@@ -1,26 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
+import { BarVerticalComponent } from '@swimlane/ngx-charts';
+import { ChiliChart } from '../models/ChiliChart';
 
 @Component({
   selector: 'app-leader-board-chart',
   templateUrl: './leader-board-chart.component.html',
   styleUrls: ['./leader-board-chart.component.scss']
 })
-export class LeaderBoardChartComponent implements OnInit {
+export class LeaderBoardChartComponent implements OnInit, OnChanges {
   view: any[] = [700, 400];
-  single = [
-    {
-      name: 'Phil',
-      value: 1
-    },
-    {
-      name: 'Gen',
-      value: 4
-    },
-    {
-      name: 'Michael Merman',
-      value: 6
-    }
-  ];
+
+  @ViewChild('chart', { read: BarVerticalComponent })
+  chart: BarVerticalComponent;
+
+  @Input()
+  chiliChart: ChiliChart;
+
   // options
   showXAxis = true;
   showYAxis = true;
@@ -34,4 +36,10 @@ export class LeaderBoardChartComponent implements OnInit {
   colorScheme = 'fire';
 
   ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.single && this.chart) {
+      this.chart.update();
+    }
+  }
 }

@@ -1,17 +1,22 @@
+import { ChiliChart } from './../models/ChiliChart';
 import { Component } from '@angular/core';
-import { TestingService } from '../testing.service';
+import { DashboardService } from '../dashboard/dashboard.service';
+import { Dashboard } from '../models/Dashboard';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  providers: [TestingService]
+  providers: [DashboardService]
 })
 export class HomeComponent {
   names: string[];
 
-  constructor(private service: TestingService) {
-    this.service.getSomething().subscribe(item => {
-      this.names = item;
+  dashboard: Dashboard;
+
+  constructor(private service: DashboardService) {
+    this.service.getDashboard().subscribe(dashboard => {
+      console.log(dashboard);
+      this.dashboard = dashboard;
     });
   }
 }
